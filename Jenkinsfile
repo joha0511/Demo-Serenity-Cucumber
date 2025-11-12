@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  tools {
+    maven 'Maven3'   // ← el mismo nombre que pusiste en Jenkins
+  }
+
   stages {
     stage('Checkout') {
       steps {
@@ -20,9 +24,9 @@ pipeline {
           reportDir: 'target/site/serenity',
           reportFiles: 'index.html',
           reportName: 'Serenity Report',
-          keepAll: true,               
-          alwaysLinkToLastBuild: true, 
-          allowMissing: false          
+          keepAll: true,
+          alwaysLinkToLastBuild: true,
+          allowMissing: false
         ])
       }
     }
